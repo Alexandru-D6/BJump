@@ -207,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022359}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Connect
+      - m_Target: {fileID: 283022361}
+        m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
+        m_MethodName: CreateLobby
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283022360}
-  - component: {fileID: 283022359}
+  - component: {fileID: 283022361}
   m_Layer: 0
   m_Name: Launch Manager
   m_TagString: Untagged
@@ -274,22 +274,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &283022359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283022358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4796bc1963eb34e1fa021b0a45b29df4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlPanel: {fileID: 1794517017}
-  feedbackText: {fileID: 328172248}
-  maxPlayersPerRoom: 4
-  loaderAnime: {fileID: 1791341449}
 --- !u!4 &283022360
 Transform:
   m_ObjectHideFlags: 0
@@ -305,6 +289,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &283022361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283022358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3745ec12dd3f3489ae328d220c912b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  feedbackText: {fileID: 0}
+  maxPlayersPerRoom: 2
 --- !u!1 &328172247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,9 +5557,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022359}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Connect
+      - m_Target: {fileID: 283022361}
+        m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
+        m_MethodName: JoinGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5833,9 +5831,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022359}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Connect
+      - m_Target: {fileID: 283022361}
+        m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
+        m_MethodName: SinglePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

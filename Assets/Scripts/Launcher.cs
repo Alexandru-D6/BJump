@@ -83,6 +83,7 @@ namespace Photon.Pun.Demo.PunBasics
 				rnd += 'A' + (int)(Random.value * 23);
             }
 
+			Debug.Log(rnd);
 			return rnd;
         }
 		
@@ -100,13 +101,13 @@ namespace Photon.Pun.Demo.PunBasics
 			{
 				LogFeedback("Creating Room...");
 				// #Critical we need at this point to attempt joining a Random Room. If it fails, we'll get notified in OnJoinRandomFailed() and we'll create one.
+				Debug.Log(generateCode());
 				PhotonNetwork.CreateRoom(generateCode());
+				Debug.Log(PhotonNetwork.CurrentRoom.Name);
 			}
 			else
 			{
-
-				LogFeedback("Connecting...");
-
+				Debug.Log("aaaaaaa");
 				// #Critical, we must first and foremost connect to Photon Online Server.
 				PhotonNetwork.ConnectUsingSettings();
 				PhotonNetwork.GameVersion = this.gameVersion;

@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022361}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
         m_MethodName: CreateLobby
         m_Mode: 1
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 283022360}
   - component: {fileID: 283022361}
   m_Layer: 0
-  m_Name: Launch Manager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -298,10 +298,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 283022358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3745ec12dd3f3489ae328d220c912b, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e1ac3a467289446b94b09a92fa76bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayersPerRoom: 2
+  maxPlayers: 2
 --- !u!1 &328172247
 GameObject:
   m_ObjectHideFlags: 0
@@ -5594,7 +5594,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022361}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
         m_MethodName: JoinGame
         m_Mode: 1
@@ -5926,7 +5926,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283022361}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.Launcher, Assembly-CSharp
         m_MethodName: SinglePlayer
         m_Mode: 1

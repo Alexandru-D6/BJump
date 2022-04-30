@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using Photon.Realtime;
 
 public class WaitingRoomScript : MonoBehaviourPunCallbacks
 {
@@ -14,8 +15,24 @@ public class WaitingRoomScript : MonoBehaviourPunCallbacks
         codeRoom.text = PhotonNetwork.CurrentRoom.Name;
     }
 
-    public override void OnJoinedRoom()
+    public void leaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         numPlayers.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
     }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        numPlayers.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();
+    }
+
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
 }

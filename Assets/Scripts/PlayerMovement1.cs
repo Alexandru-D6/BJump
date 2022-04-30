@@ -94,7 +94,10 @@ public class PlayerMovement1 : MonoBehaviourPun
     [PunRPC]
     void Superpower_RPC(int _view, string en_power)
     {
-        gameManager.GetComponent<GameManager>().Superpower(_view, en_power);
+        if (view.IsMine)
+        {
+            gameManager.GetComponent<GameManager>().Superpower(_view, en_power);
+        }
     }
 
     private void FixedUpdate()

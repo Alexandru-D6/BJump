@@ -37,12 +37,12 @@ public class GameManager : MonoBehaviourPun
                 if (Time.time - time_afected >= 3f)
                 {
                     time_afected = 0;
-                    if (power == afectedPower)
+                    if (afectedPower == "boostjump")
                     {
                         Debug.Log("reste boost");
                         bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(16f);
                     }
-                    else if (power == afectedPower)
+                    else if (afectedPower == "freeze")
                     {
 
                         bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviourPun
 
 
                     }
-                    else if (power == afectedPower)
+                    else if (afectedPower == "low speed")
                     {
                         bieneplayer.GetComponent<PlayerMovement1>().restoreSpeed();
 

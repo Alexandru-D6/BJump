@@ -13,7 +13,7 @@ public class BeeSpawner : MonoBehaviour
     public int bees_per_frame = 1;
  
     public float spawn_circle_radius = 500.0f;
-    public float death_circle_radius = 1000.0f;
+    public float death_circle_radius = 2000.0f;
  
     public float fastest_speed = 150.0f;
     public float slowest_speed = 50.0f;

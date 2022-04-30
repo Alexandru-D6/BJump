@@ -63,23 +63,23 @@ public class GameManager : MonoBehaviour
     }
 
     [PunRPC]
-    public void Superpower(int _view)
+    public void Superpower(int _view, string en_power)
     {
         if (view.IsMine)
         {
             time_afected = Time.time;
-            if (power == "boostjump" && _view == view.ViewID)
+            if (en_power == "boostjump" && _view == view.ViewID)
             {
                 afectedPower = "boostjump";
                 bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(30f);
             }
-            else if (power == "freeze" && _view != view.ViewID)
+            else if (en_power == "freeze" && _view != view.ViewID)
             {
                 afectedPower = "freeze";
                 bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
             }
-            else if (power == "low speed" && _view != view.ViewID)
+            else if (en_power == "low speed" && _view != view.ViewID)
             {
                 afectedPower = "low speed";
                 bieneplayer.GetComponent<PlayerMovement1>().setSpeed();

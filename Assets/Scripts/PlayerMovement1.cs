@@ -47,10 +47,10 @@ public class PlayerMovement1 : MonoBehaviour
                     power_time = Time.time;
 
                     if (gameManager.GetComponent<GameManager>().getPower() == "boostjump")
-                        gameManager.GetComponent<GameManager>().Superpower(view.ViewID);
+                        gameManager.GetComponent<GameManager>().Superpower(view.ViewID, gameManager.GetComponent<GameManager>().getPower());
                     else
                     {
-                        view.RPC("Superpower", RpcTarget.Others, view);
+                        view.RPC("Superpower", RpcTarget.Others, view.ViewID, gameManager.GetComponent<GameManager>().getPower());
                     }
                 }
                 last_tap_time = Time.time;

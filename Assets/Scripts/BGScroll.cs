@@ -13,6 +13,7 @@ public class BGScroll : MonoBehaviour
     void Start()
     {
         StartPosition = transform.position;
+        generateProceduralWorld(transform.Find("newPlatforms").gameObject);
     }
 
     // Update is called once per frame

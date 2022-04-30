@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement1 : MonoBehaviour
 {
@@ -17,37 +18,54 @@ public class PlayerMovement1 : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private GameObject gameManager;
 
+    PhotonView view;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>().gameObject;
+        view = GetComponent<PhotonView>();
+    }
+
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (IsGrounded() && rb.velocity.y <= 0f)
+        if (view.IsMine)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
+            horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (power_time == 0f &&Input.GetButtonDown("Jump")){
-            float time_sincelast_click = Time.time - last_tap_time;
-            if(time_sincelast_click <= time_double_tap){
-                Debug.Log("SUPER POWER!");
-                last_update = Time.time;
-                power_time = Time.time;
-                gameManager.GetComponent<GameManager>().Superpower();
+            if (IsGrounded() && rb.velocity.y <= 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             }
-            last_tap_time = Time.time;
-        }
-        if(power_time != 0 && Time.time - power_time >= 10f){
-            Debug.Log("YOU CAN USIT AGAIN");
-            power_time = 0;
-  
-        }
 
-        Flip();
+            if (power_time == 0f && Input.GetButtonDown("Jump"))
+            {
+                float time_sincelast_click = Time.time - last_tap_time;
+                if (time_sincelast_click <= time_double_tap)
+                {
+                    Debug.Log("SUPER POWER!");
+                    last_update = Time.time;
+                    power_time = Time.time;
+                    gameManager.GetComponent<GameManager>().Superpower();
+                }
+                last_tap_time = Time.time;
+            }
+            if (power_time != 0 && Time.time - power_time >= 10f)
+            {
+                Debug.Log("YOU CAN USIT AGAIN");
+                power_time = 0;
+
+            }
+
+            Flip();
+        }
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if (view.IsMine)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
     }
 
     private bool IsGrounded()

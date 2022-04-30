@@ -20,6 +20,11 @@ public class WaitingRoomScript : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
+    public void startGame()
+    {
+        PhotonNetwork.LoadLevel("Game");
+    }
+
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         numPlayers.text = PhotonNetwork.CurrentRoom.PlayerCount.ToString();

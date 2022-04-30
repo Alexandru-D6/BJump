@@ -17,4 +17,9 @@ public class JoinGameScript : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel("WaitingRoomScene");
     }
+
+    public void leaveJoinGame()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
 }

@@ -1245,9 +1245,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.WaitingRoomScript, Assembly-CSharp
-        m_MethodName: startButton
+      - m_Target: {fileID: 66529386}
+        m_TargetAssemblyTypeName: WaitingRoomScript, Assembly-CSharp
+        m_MethodName: startGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

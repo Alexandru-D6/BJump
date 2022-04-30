@@ -32,7 +32,7 @@ public class MenuScript : MonoBehaviourPunCallbacks
 
     public void SinglePlayer()
     {
-        //iniciar una partida en solitario mandando max player = 1??
+        SceneManager.LoadScene("Game");
     }
 
     public override void OnJoinedRoom()

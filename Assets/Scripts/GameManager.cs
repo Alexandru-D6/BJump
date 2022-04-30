@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {   [SerializeField] private GameObject bieneplayer;
@@ -9,7 +10,15 @@ public class GameManager : MonoBehaviour
     private float time_afected = 0f;
     void Start()
     {
-        
+        var objects = FindObjectsOfType<GameObject>();
+        foreach(var aa in objects)
+        {
+            PhotonView view = aa.GetComponent<PhotonView>();
+            if (view != null && view.IsMine)
+            {
+                bieneplayer = aa;
+            }
+        }
     }
 
     // Update is called once per frame

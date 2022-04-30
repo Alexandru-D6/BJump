@@ -999,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37e733090ed5c4397b4b8d9e6a170d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_area: {fileID: 0}
+  game_area: {fileID: 1748642815}
   bee_prefab: {fileID: 4438421108834020156, guid: 968e86125c90445b19eb783497a870fd, type: 3}
   bee_count: 0
   bee_limit: 5

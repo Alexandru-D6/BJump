@@ -867,9 +867,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Photon.Pun.Demo.PunBasics.JoinGameScript, Assembly-CSharp
-        m_MethodName: playButton
+      - m_Target: {fileID: 1836823701}
+        m_TargetAssemblyTypeName: JoinGameScript, Assembly-CSharp
+        m_MethodName: JoinRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

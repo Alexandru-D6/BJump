@@ -41,8 +41,6 @@ public class PlayerMovement1 : MonoBehaviourPun
                 target = transform.position;
             }
 
-            Debug.Log(target);
-
             if (target == transform.position)
             {
                 horizontal = Input.GetAxisRaw("Horizontal");

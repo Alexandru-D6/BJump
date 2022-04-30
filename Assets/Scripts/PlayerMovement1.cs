@@ -45,7 +45,13 @@ public class PlayerMovement1 : MonoBehaviour
                     Debug.Log("SUPER POWER!");
                     last_update = Time.time;
                     power_time = Time.time;
-                    gameManager.GetComponent<GameManager>().Superpower();
+
+                    if (gameManager.GetComponent<GameManager>().getPower() == "boostjump")
+                        gameManager.GetComponent<GameManager>().Superpower(view.ViewID);
+                    else
+                    {
+                        view.RPC("Superpower", RpcTarget.Others, view);
+                    }
                 }
                 last_tap_time = Time.time;
             }

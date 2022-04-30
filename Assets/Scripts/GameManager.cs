@@ -4,72 +4,86 @@ using UnityEngine;
 using Photon.Pun;
 
 public class GameManager : MonoBehaviour
-{   [SerializeField] private GameObject bieneplayer;
+{   [SerializeField] GameObject bieneplayer;
+    [SerializeField] PhotonView view;
     // Start is called before the first frame update
-    private string power = "low speed";
+    private string power = "freeze";
+    private string afectedPower = "";
     private float time_afected = 0f;
     void Start()
     {
         var objects = FindObjectsOfType<GameObject>();
         foreach(var aa in objects)
         {
-            PhotonView view = aa.GetComponent<PhotonView>();
-            if (view != null && view.IsMine)
+            PhotonView _view = aa.GetComponent<PhotonView>();
+            if (_view != null && _view.IsMine)
             {
                 bieneplayer = aa;
+                view = _view;
             }
         }
     }
 
+    public string getPower() { return power; }
+
     // Update is called once per frame
     void Update()
     {
-        if(time_afected != 0)
+        if (view.IsMine)
         {
-            
-            if (Time.time - time_afected>= 3f)
+            if (time_afected != 0)
             {
-                time_afected = 0;
-                if (power == "boostjump")
+
+                if (Time.time - time_afected >= 3f)
                 {
-                    Debug.Log("reste boost");
-                    bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(16f);
-                }
-                else if (power == "freeze")
-                {
+                    time_afected = 0;
+                    if (power == afectedPower)
+                    {
+                        Debug.Log("reste boost");
+                        bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(16f);
+                    }
+                    else if (power == afectedPower)
+                    {
 
-                    bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                    bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-                    bieneplayer.GetComponent<Rigidbody2D>().WakeUp();
-
-
-                }
-                else if (power == "low speed")
-                {
-                    bieneplayer.GetComponent<PlayerMovement1>().restoreSpeed();
+                        bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                        bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+                        bieneplayer.GetComponent<Rigidbody2D>().WakeUp();
 
 
+                    }
+                    else if (power == afectedPower)
+                    {
+                        bieneplayer.GetComponent<PlayerMovement1>().restoreSpeed();
+
+
+                    }
                 }
             }
         }
     }
 
     [PunRPC]
-    public void Superpower()
+    public void Superpower(int _view)
     {
-        time_afected = Time.time;
-        if (power == "boostjump")
+        if (view.IsMine)
         {
-            bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(30f);
-        }
-        else if (power == "freeze")
-        {
-            bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-            
-        }
-        else if (power == "low speed")
-        {
-            bieneplayer.GetComponent<PlayerMovement1>().setSpeed();
+            time_afected = Time.time;
+            if (power == "boostjump" && _view == view.ViewID)
+            {
+                afectedPower = "boostjump";
+                bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(30f);
+            }
+            else if (power == "freeze" && _view != view.ViewID)
+            {
+                afectedPower = "freeze";
+                bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+            }
+            else if (power == "low speed" && _view != view.ViewID)
+            {
+                afectedPower = "low speed";
+                bieneplayer.GetComponent<PlayerMovement1>().setSpeed();
+            }
         }
     }
 }

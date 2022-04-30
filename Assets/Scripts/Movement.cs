@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {

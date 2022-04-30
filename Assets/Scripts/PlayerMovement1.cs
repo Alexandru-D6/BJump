@@ -67,7 +67,7 @@ public class PlayerMovement1 : MonoBehaviourPun
                         gameManager.GetComponent<GameManager>().Superpower(view.ViewID, gameManager.GetComponent<GameManager>().getPower());
                     else
                     {
-                        gameManager.GetComponent<GameManager>().photonView.RPC("Superpower", RpcTarget.Others, view.ViewID, gameManager.GetComponent<GameManager>().getPower());
+                        gameManager.gameObject.GetPhotonView().RPC("Superpower", RpcTarget.Others, view.ViewID, gameManager.GetComponent<GameManager>().getPower());
                     }
                 }
                 last_tap_time = Time.time;

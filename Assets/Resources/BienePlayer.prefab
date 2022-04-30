@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 6039408168772194817}
   - component: {fileID: 4586527517882044625}
   - component: {fileID: 693383235316359345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BienePlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

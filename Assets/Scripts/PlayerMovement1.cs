@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class PlayerMovement1 : MonoBehaviour
+public class PlayerMovement1 : MonoBehaviourPun
 {
     private float horizontal;
     public float speed = 8f;
@@ -11,6 +11,8 @@ public class PlayerMovement1 : MonoBehaviour
     private float last_tap_time;
     private float power_time = 0f;
     private float last_update;
+
+    private Vector3 target;
 
 
     [SerializeField] private Rigidbody2D rb;
@@ -24,13 +26,30 @@ public class PlayerMovement1 : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>().gameObject;
         view = GetComponent<PhotonView>();
+        target = transform.position;
     }
 
     void Update()
     {
         if (view.IsMine)
         {
-            horizontal = Input.GetAxisRaw("Horizontal");
+            if (Input.GetMouseButton(0))
+            {
+                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }else
+            {
+                target = transform.position;
+            }
+
+            Debug.Log(target);
+
+            if (target == transform.position)
+            {
+                horizontal = Input.GetAxisRaw("Horizontal");
+            }else
+            {
+                horizontal = ((transform.position.x - target.x) > 0f) ? -1f : 1f;
+            }
 
             if (IsGrounded() && rb.velocity.y <= 0f)
             {

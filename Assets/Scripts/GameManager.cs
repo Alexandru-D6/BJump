@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPun
 {   [SerializeField] GameObject bieneplayer;
     [SerializeField] PhotonView view;
     // Start is called before the first frame update

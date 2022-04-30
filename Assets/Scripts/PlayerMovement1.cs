@@ -88,7 +88,8 @@ public class PlayerMovement1 : MonoBehaviour
     {
         jumpingPower = boost;
     }
-    public void setSpeed(float boost)
+
+    public void setSpeed()
     {
         speed /= 2.0f;
         jumpingPower /= 2.0f;

@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    
+
+    [PunRPC]
     public void Superpower()
     {
         time_afected = Time.time;
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
         else if (power == "low speed")
         {
-            bieneplayer.GetComponent<PlayerMovement1>().setSpeed(4.0f);
+            bieneplayer.GetComponent<PlayerMovement1>().setSpeed();
         }
     }
 }

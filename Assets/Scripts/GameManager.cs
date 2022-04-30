@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviourPun
         }
     }
 
-    [PunRPC]
     public void Superpower(int _view, string en_power)
     {
         if (view.IsMine)

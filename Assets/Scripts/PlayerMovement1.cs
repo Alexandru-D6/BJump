@@ -73,7 +73,7 @@ public class PlayerMovement1 : MonoBehaviourPun
                             PhotonView _view = aa.GetComponent<PhotonView>();
                             if (_view != null && !_view.IsMine)
                             {
-                                _view.RPC("Superpower", RpcTarget.Others, view.ViewID, gameManager.GetComponent<GameManager>().getPower());
+                                _view.RPC("Superpower_RPC", RpcTarget.Others, view.ViewID, gameManager.GetComponent<GameManager>().getPower());
                             }
                         }
                     }
@@ -89,6 +89,12 @@ public class PlayerMovement1 : MonoBehaviourPun
 
             Flip();
         }
+    }
+
+    [PunRPC]
+    void Superpower_RPC(int _view, string en_power)
+    {
+        gameManager.GetComponent<GameManager>().Superpower(_view, en_power);
     }
 
     private void FixedUpdate()

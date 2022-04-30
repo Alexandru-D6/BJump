@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numPlayers: {fileID: 1026106070}
   codeRoom: {fileID: 1371207886}
+  start: {fileID: 2053296161}
 --- !u!224 &588381339 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22478194, guid: b19bb80838bcf4457bf6f50a19c5593b, type: 3}

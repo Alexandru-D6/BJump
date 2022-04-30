@@ -30,10 +30,13 @@ public class BGScroll : MonoBehaviour
     {
         for (int i = 0; i < 14; ++i)
         {
-            GameObject p = Instantiate(platform, new Vector3(0, 0, -1), new Quaternion());
-            p.transform.parent = newP.transform;
+            if (i % (int)Random.Range(3, 4) == 0)
+            {
+                GameObject p = Instantiate(platform, new Vector3(0, 0, -1), new Quaternion());
+                p.transform.parent = newP.transform;
 
-            p.transform.localPosition = new Vector3(-1.0f + (Random.value*2.0f), (float)i - 1.5f, -1);
+                p.transform.localPosition = new Vector3(Random.Range(-4f, 4f), (float)(i) - 1.5f + (Random.value - 0.5f), -1);
+            }
         }
     }
 

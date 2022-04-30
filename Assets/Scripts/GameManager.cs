@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         }
         else if (power == "low speed")
         {
-            bieneplayer.GetComponent<PlayerMovement1>().setSpeed();
+            bieneplayer.GetComponent<PlayerMovement1>().setSpeed(4.0f);
         }
     }
 }

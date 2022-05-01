@@ -35,7 +35,7 @@ public class MenuScript : MonoBehaviourPunCallbacks
     public void SinglePlayer()
     {
         singleplayer = true;
-        PhotonNetwork.JoinRandomOrCreateRoom();
+        PhotonNetwork.CreateRoom(generateCode());
     }
 
     public override void OnJoinedRoom()

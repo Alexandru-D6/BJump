@@ -33,7 +33,7 @@ public class PlayerMovement1 : MonoBehaviourPun
     {
         if (view.IsMine)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }else
@@ -76,12 +76,22 @@ public class PlayerMovement1 : MonoBehaviourPun
                             }
                         }
                     }
+                    if (PhotonNetwork.IsMasterClient)
+                    {
+                        gameManager.GetComponent<GameManager>().setEnabledImage(false);
+                    }
                 }
                 last_tap_time = Time.time;
             }
             if (power_time != 0 && Time.time - power_time >= 10f)
             {
+
                 power_time = 0;
+
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    gameManager.GetComponent<GameManager>().setEnabledImage(true);
+                }
 
             }
 

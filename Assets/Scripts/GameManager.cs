@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviourPun
 {   [SerializeField] GameObject bieneplayer;
     [SerializeField] PhotonView view;
+    [SerializeField] Image img;
+
+    [SerializeField] Sprite img1;
+    [SerializeField] Sprite img2;
+    [SerializeField] Sprite img3;
+
     // Start is called before the first frame update
     private string power = "freeze";
     private string afectedPower = "";
@@ -35,6 +42,24 @@ public class GameManager : MonoBehaviourPun
 
         initPlayers = FindObjectsOfType<PhotonView>().Length;
         curPlayers = initPlayers;
+
+        if (power == "freeze") 
+        { 
+            img.sprite = img2;
+        }
+        else if (power == "low speed")
+        {
+            img.sprite = img1;
+        }
+        else if (power == "boostjump")
+        {
+            img.sprite = img3;
+        }
+    }
+    
+    public void setEnabledImage (bool state)
+    {
+        img.enabled = state;
     }
 
     public string getPower() { return power; }

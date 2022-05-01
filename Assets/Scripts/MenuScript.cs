@@ -8,6 +8,8 @@ public class MenuScript : MonoBehaviourPunCallbacks
 {
     [SerializeField] int maxPlayers;
 
+    private bool singleplayer = false;
+
     string generateCode()
     {
         string rnd = "";
@@ -32,11 +34,15 @@ public class MenuScript : MonoBehaviourPunCallbacks
 
     public void SinglePlayer()
     {
-        SceneManager.LoadScene("Game");
+        singleplayer = true;
+        PhotonNetwork.JoinRandomOrCreateRoom();
     }
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("WaitingRoomScene");
+        if (!singleplayer)
+            PhotonNetwork.LoadLevel("WaitingRoomScene");
+        else
+            PhotonNetwork.LoadLevel("Game");
     }
 }

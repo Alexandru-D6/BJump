@@ -33,7 +33,7 @@ public class PlayerMovement1 : MonoBehaviourPun
     {
         if (view.IsMine)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }else
@@ -54,12 +54,11 @@ public class PlayerMovement1 : MonoBehaviourPun
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             }
 
-            if (power_time == 0f && Input.GetButtonDown("Jump"))
+            if (power_time == 0f && Input.GetMouseButtonUp(0))
             {
                 float time_sincelast_click = Time.time - last_tap_time;
                 if (time_sincelast_click <= time_double_tap)
                 {
-                    Debug.Log("SUPER POWER!");
                     last_update = Time.time;
                     power_time = Time.time;
 
@@ -82,7 +81,6 @@ public class PlayerMovement1 : MonoBehaviourPun
             }
             if (power_time != 0 && Time.time - power_time >= 10f)
             {
-                Debug.Log("YOU CAN USIT AGAIN");
                 power_time = 0;
 
             }

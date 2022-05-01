@@ -373,7 +373,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1002998320}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2ab86640f3b1ef64593003f1a467da11, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -816,7 +816,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1706931020}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2ab86640f3b1ef64593003f1a467da11, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -982,6 +982,14 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3647226963176114306, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647226963176114306, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3647226963176114306, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.88
       objectReference: {fileID: 0}
@@ -1024,6 +1032,14 @@ PrefabInstance:
     - target: {fileID: 3647226963176114309, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
       propertyPath: m_Name
       value: purple (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539683626418969193, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 6539683626418969193, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf1dd78d65b78294189cb7f880cbc06a, type: 3}

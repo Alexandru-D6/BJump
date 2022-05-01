@@ -16,6 +16,12 @@ public class GameManager : MonoBehaviourPun
     public int curPlayers = -1;
     void Start()
     {
+        float num = Random.Range(0f, 3f);
+        
+        if(num >= 0f && num < 1f) power = "boostjump";
+        else if (num >= 1f && num < 2f) power = "freeze";
+        else power = "low speed";
+        
         var objects = FindObjectsOfType<GameObject>();
         foreach(var aa in objects)
         {
@@ -58,23 +64,17 @@ public class GameManager : MonoBehaviourPun
                         time_afected = 0;
                         if (afectedPower == "boostjump")
                         {
-                            Debug.Log("reste boost");
                             bieneplayer.GetComponent<PlayerMovement1>().setPowerJump(16f);
                         }
                         else if (afectedPower == "freeze")
                         {
-
                             bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
                             bieneplayer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
                             bieneplayer.GetComponent<Rigidbody2D>().WakeUp();
-
-
                         }
                         else if (afectedPower == "low speed")
                         {
                             bieneplayer.GetComponent<PlayerMovement1>().restoreSpeed();
-
-
                         }
                     }
                 }

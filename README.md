@@ -13,6 +13,9 @@ You can play it yourself at [BJump](https://alexandru-d6.github.io/BJump/).
 
 All the source code is available in the [Root](./) folder, and you can easily import it to unity using the version 6000.0.37f1. Newer version should also work, but they have not been tested.
 
+> [!IMPORTANT]
+> The initial scene is [Loading Scene](/Assets/Scenes/LoadingScene.unity)
+
 Developed by:
  - Peilin Ni
  - Pau Adell Raventos

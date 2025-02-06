@@ -49,9 +49,9 @@ public class PlayerMovement1 : MonoBehaviourPun
                 horizontal = ((transform.position.x - target.x) > 0f) ? -1f : 1f;
             }
 
-            if (IsGrounded() && rb.velocity.y <= 0f)
+            if (IsGrounded() && rb.linearVelocity.y <= 0f)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
             }
 
             if (power_time == 0f && Input.GetMouseButtonUp(0))
@@ -112,7 +112,7 @@ public class PlayerMovement1 : MonoBehaviourPun
     {
         if (view.IsMine)
         {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
         }
     }
 
